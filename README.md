@@ -2,15 +2,14 @@
 Antlr-Java-Grammar
 Build a dynamic code analyzer for Java Language to generate statement and branchescode coverage reports. Kindly refer to this stackoverflow link to know the differencebetween statement and branch coverage.To warm you up, check the expected output of the project that you are expected todeliver at the end of the project.
 
-## Task 2 : <br>
+## Task 2 : 
    
       Task require to list the blocks that's entered during runing the code 
       This Done by :
-        - we record the cur block and the total block numbers
-        - first we start at main so we write a java code at that block that insert in a set the block number and that block is visited
-        - increase the block num and cur num
-        - when entring a new block the we write snippet of java code that do push the block num and that's visted in the set
-        - when exiting the block the cur_block is decreased by one 
-        - when the cur block reaches 0 so i am leaving the main erg i write a snippet of code that write the containers of the set to an outer file
+        - write a snippet of java code that import java_util.
+        - add snippet of code to declare the set and sorted set.
+        - we record the total block number.
+        - when entring a new block  we write snippet of java code that do push the block number and that's visted in the set.
+        - when entring new blocks increase the number of block number.
        
     
