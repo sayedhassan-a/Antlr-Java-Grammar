@@ -4,7 +4,7 @@ Build a dynamic code analyzer for Java Language to generate statement and branch
 
 ## Task 2 : <br>
    
-      Task require to list the blocks that's entered during runing the code <br>
+      Task require to list the blocks that's entered during runing the code </br>
       This Done by :
         - we record the cur block and the total block numvers
         - first we start at main so we write a java code at that block that insert in a set the block number and that block is visited
