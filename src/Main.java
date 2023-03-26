@@ -2,15 +2,12 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
 import java.io.FileWriter;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 
 public class Main {
     public static void main(String[] args) throws Exception{
-        Set<String> hash_Set = new HashSet<String>();
+        SortedSet<String> hash_Set = new TreeSet<String>();
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Enter file path");
         String file_name = myObj.nextLine();  // Read user input
