@@ -2,7 +2,7 @@
 ## Task 1
 Build a dynamic code analyzer for Java Language to generate statement and branchescode coverage reports. Kindly refer to this stackoverflow link to know the differencebetween statement and branch coverage.To warm you up, check the expected output of the project that you are expected todeliver at the end of the project.
   
-![Task 1]('https://github.com/sayedhassan-a/Antlr-Java-Grammar/blob/master/1.jpg')
+![Task 1](Antlr-Java-Grammar/blob/master/1.jpg)
 ## Task 2 : 
    
       Task require to list the blocks that's entered during runing the code 
