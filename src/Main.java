@@ -2,9 +2,15 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
 import java.io.FileWriter;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Set;
+
+
 public class Main {
     public static void main(String[] args) throws Exception{
+        Set<String> hash_Set = new HashSet<String>();
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Enter file path");
         String file_name = myObj.nextLine();  // Read user input
@@ -18,7 +24,8 @@ public class Main {
         ParseTreeWalker walker = new ParseTreeWalker();
         walker.walk(new myBaseListener(rewriter), tree);
 
-        FileWriter myWriter = new FileWriter("intermediate.java");
+
+        FileWriter myWriter = new FileWriter("Main.java");
         myWriter.write(rewriter.getText());
         myWriter.close();
 
