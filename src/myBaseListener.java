@@ -14,7 +14,6 @@ public class myBaseListener extends JavaParserBaseListener{
     public myBaseListener(TokenStreamRewriter rewriter){
         this.rewriter = rewriter;
         this.block_num = 0;
-        this.cur_block = 0;
         this.add_imports = false;
     }
 
@@ -32,30 +31,19 @@ public class myBaseListener extends JavaParserBaseListener{
     public void enterBlock(JavaParser.BlockContext ctx) {
         //System.out.println(ctx.getText());
         //System.out.println("{//block number "+block_num+ctx.getText().substring(1));
-        if(block_num==0) {
-            rewriter.insertAfter(ctx.getStart(), "//block number"+block_num+"\n"+"Set<String> hash_Set = new HashSet<String>();\n"+"hash_Set.add(\"block number\""+"+\" "+block_num+" \"+"+"\"is visited\");\n");
-        }
-        else{
-            rewriter.insertAfter(ctx.getStart(),"//block number"+block_num+"\n"+"hash_Set.add(\"block number\""+"+\" "+block_num+" \"+"+"\"is visited\");\n");
-        }
-
-        block_num++; //block number to indicate numbe of blocks passed
-        cur_block++; //as flag for exit to know first block
-    }
-
-    @Override
-    public void exitBlock(JavaParser.BlockContext ctx) {
-        cur_block--;
-
-        if(cur_block == 0) {
-            rewriter.insertBefore(ctx.getStop(),"FileWriter myWriter = new FileWriter(\"visited.txt\");\n" +
+        if (block_num == 0) {
+            rewriter.insertAfter(ctx.getStart(), "//block number" + block_num + "\n" + "Set<String> hash_Set = new HashSet<String>();\n" + "hash_Set.add(\"block number\"" + "+\" " + block_num + " \"+" + "\"is visited\");\n");
+            rewriter.insertBefore(ctx.getStop(), "FileWriter myWriter = new FileWriter(\"visited.txt\");\n" +
                     "Iterator<String> itr = hash_Set.iterator();\n" +
                     "while(itr.hasNext()){\n" +
                     "myWriter.write(itr.next());\n" +
                     "myWriter.write(\'\\n\');\n" +
                     "}\n" +
                     "myWriter.close();\n");
-
+        } else {
+            rewriter.insertAfter(ctx.getStart(), "//block number" + block_num + "\n" + "hash_Set.add(\"block number\"" + "+\" " + block_num + " \"+" + "\"is visited\");\n");
         }
+
+        block_num++; //block number to indicate numbe of blocks passed
     }
 }
