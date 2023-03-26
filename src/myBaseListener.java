@@ -21,8 +21,7 @@ public class myBaseListener extends JavaParserBaseListener{
     public void enterTypeDeclaration(JavaParser.TypeDeclarationContext ctx) {
         if(!add_imports) {
             rewriter.insertBefore(ctx.getStart(), "import java.io.FileWriter;\n" +
-                    "import java.util.HashSet;\n" +
-                    "import java.util.Set;\n"+"import java.util.Iterator;\n");
+                    "import java.util.*;\n");
             add_imports = true;
         }
     }
@@ -32,7 +31,7 @@ public class myBaseListener extends JavaParserBaseListener{
         //System.out.println(ctx.getText());
         //System.out.println("{//block number "+block_num+ctx.getText().substring(1));
         if (block_num == 0) {
-            rewriter.insertAfter(ctx.getStart(), "//block number" + block_num + "\n" + "Set<String> hash_Set = new HashSet<String>();\n" + "hash_Set.add(\"block number\"" + "+\" " + block_num + " \"+" + "\"is visited\");\n");
+            rewriter.insertAfter(ctx.getStart(), "//block number" + block_num + "\n" + "SortedSet<String> hash_Set = new TreeSet<String>();\n" + "hash_Set.add(\"block number\"" + "+\" " + block_num + " \"+" + "\"is visited\");\n");
             rewriter.insertBefore(ctx.getStop(), "FileWriter myWriter = new FileWriter(\"visited.txt\");\n" +
                     "Iterator<String> itr = hash_Set.iterator();\n" +
                     "while(itr.hasNext()){\n" +
