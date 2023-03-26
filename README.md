@@ -11,6 +11,6 @@ Build a dynamic code analyzer for Java Language to generate statement and branch
         - increase the block num and cur num
         - when entring a new block the we write snippet of java code that do push the block num and that's visted in the set
         - when exiting the block the cur_block is decreased by one 
-        - when the cur block reaches 0 so i am leaving the main so i write a snippet of code that write the containers of the set to an outer file
+        - when the cur block reaches 0 so i am leaving the main erg i write a snippet of code that write the containers of the set to an outer file
        
     
