@@ -26,23 +26,17 @@ public class myBaseListener extends JavaParserBaseListener{
         }
     }
 
+
     @Override
     public void enterBlock(JavaParser.BlockContext ctx) {
         //System.out.println(ctx.getText());
         //System.out.println("{//block number "+block_num+ctx.getText().substring(1));
-        if (block_num == 0) {
-            rewriter.insertAfter(ctx.getStart(), "//block number" + block_num + "\n" + "Vector<String> hash_Set = new Vector<String>();\n" + "hash_Set.add(\"block number\"" + "+\" " + block_num + " \"+" + "\"is visited\");\n");
-            rewriter.insertBefore(ctx.getStop(), "FileWriter myWriter = new FileWriter(\"visited.txt\");\n" +
-                    "Iterator<String> itr = hash_Set.iterator();\n" +
-                    "while(itr.hasNext()){\n" +
-                    "myWriter.write(itr.next());\n" +
-                    "myWriter.write(\'\\n\');\n" +
-                    "}\n" +
-                    "myWriter.close();\n");
-        } else {
-            rewriter.insertAfter(ctx.getStart(), "//block number" + block_num + "\n" + "hash_Set.add(\"block number\"" + "+\" " + block_num + " \"+" + "\"is visited\");\n");
-        }
+        rewriter.insertAfter(ctx.getStart(), "\n//block number "+block_num+"\n"+"        FileWriter fileWriter"+block_num+" = new FileWriter(\"visited.txt\", true);\n" +
+                "        fileWriter"+block_num+".write(\"Block number \" +"+block_num +"+ \" is visited\\n\");\n" +
+                "        fileWriter"+block_num+".close();\n");
+
 
         block_num++; //block number to indicate numbe of blocks passed
     }
+
 }
