@@ -31,7 +31,7 @@ public class myBaseListener extends JavaParserBaseListener{
         //System.out.println(ctx.getText());
         //System.out.println("{//block number "+block_num+ctx.getText().substring(1));
         if (block_num == 0) {
-            rewriter.insertAfter(ctx.getStart(), "//block number" + block_num + "\n" + "SortedSet<String> hash_Set = new TreeSet<String>();\n" + "hash_Set.add(\"block number\"" + "+\" " + block_num + " \"+" + "\"is visited\");\n");
+            rewriter.insertAfter(ctx.getStart(), "//block number" + block_num + "\n" + "Vector<String> hash_Set = new Vector<String>();\n" + "hash_Set.add(\"block number\"" + "+\" " + block_num + " \"+" + "\"is visited\");\n");
             rewriter.insertBefore(ctx.getStop(), "FileWriter myWriter = new FileWriter(\"visited.txt\");\n" +
                     "Iterator<String> itr = hash_Set.iterator();\n" +
                     "while(itr.hasNext()){\n" +
