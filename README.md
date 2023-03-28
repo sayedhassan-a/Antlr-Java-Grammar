@@ -8,9 +8,8 @@ Build a dynamic code analyzer for Java Language to generate statement and branch
       Task require to list the blocks that's entered during runing the code 
       This Done by :
         - write a snippet of java code that import java_util.
-        - add snippet of code to declare the set and sorted set.
         - we record the total block number.
-        - when entring a new block  we write snippet of java code that do push the block number and that's visted in the set.
+        - when entring a new block  we write snippet of java code that do print the block number and that's visted in an outter file.
         - when entring new blocks increase the number of block number.
   ### 1) The input File
   ![Task 2](https://github.com/sayedhassan-a/Antlr-Java-Grammar/blob/master/st.jpg)
