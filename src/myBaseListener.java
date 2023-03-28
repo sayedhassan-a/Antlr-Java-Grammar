@@ -1,47 +1,42 @@
+import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.TokenStreamRewriter;
+import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.io.FileWriter;
-import java.util.*;
-public class Main {
-    public static void say_hi() throws Exception {
-//block number 0
-        FileWriter fileWriter0 = new FileWriter("visited.txt", true);
-        fileWriter0.write("Block number " +0+ " is visited\n");
-        fileWriter0.close();
+import java.util.Iterator;
+import java.util.Vector;
 
-        System.out.println("Hi");
+public class myBaseListener extends JavaParserBaseListener{
+    int block_num;
+    int cur_block;
+    boolean add_imports;
+    TokenStreamRewriter rewriter;
+    public myBaseListener(TokenStreamRewriter rewriter){
+        this.rewriter = rewriter;
+        this.block_num = 0;
+        this.add_imports = false;
     }
-    public static void main(String[] args) throws Exception{
-//block number 1
-        FileWriter fileWriter1 = new FileWriter("visited.txt", true);
-        fileWriter1.write("Block number " +1+ " is visited\n");
-        fileWriter1.close();
 
-        int x=5;
-        //ANTLRFileStream input=new ANTLRFileStream("C:\\Users\\Sayed\\IdeaProjects\\trial\\src\\trial.java");
-        say_hi();
-        if(5>=4){
-//block number 2
-        FileWriter fileWriter2 = new FileWriter("visited.txt", true);
-        fileWriter2.write("Block number " +2+ " is visited\n");
-        fileWriter2.close();
-
-            if(1==0){
-//block number 3
-        FileWriter fileWriter3 = new FileWriter("visited.txt", true);
-        fileWriter3.write("Block number " +3+ " is visited\n");
-        fileWriter3.close();
-
-                say_hi();
-            }
-        }
-        for(int i=0;i<5;i++){
-//block number 4
-        FileWriter fileWriter4 = new FileWriter("visited.txt", true);
-        fileWriter4.write("Block number " +4+ " is visited\n");
-        fileWriter4.close();
-
-            System.out.println("Hello");
-            say_hi();
+    @Override
+    public void enterTypeDeclaration(JavaParser.TypeDeclarationContext ctx) {
+        if(!add_imports) {
+            rewriter.insertBefore(ctx.getStart(), "import java.io.FileWriter;\n" +
+                    "import java.util.*;\n");
+            add_imports = true;
         }
     }
+
+
+    @Override
+    public void enterBlock(JavaParser.BlockContext ctx) {
+        //System.out.println(ctx.getText());
+        //System.out.println("{//block number "+block_num+ctx.getText().substring(1));
+        rewriter.insertAfter(ctx.getStart(), "\n//block number "+block_num+"\n"+"        FileWriter fileWriter"+block_num+" = new FileWriter(\"visited.txt\", true);\n" +
+                "        fileWriter"+block_num+".write(\"Block number \" +"+block_num +"+ \" is visited\\n\");\n" +
+                "        fileWriter"+block_num+".close();\n");
+
+
+        block_num++; //block number to indicate numbe of blocks passed
+    }
+
 }

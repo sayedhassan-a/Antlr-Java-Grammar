@@ -3,10 +3,10 @@ import org.antlr.v4.runtime.TokenStreamRewriter;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import java.util.Vector;
 
-public class myBaseListener extends JavaParserBaseListener{
+public class myBaseListener1 extends JavaParserBaseListener{
     int block_num;
     TokenStreamRewriter rewriter;
-    public myBaseListener(TokenStreamRewriter rewriter){
+    public myBaseListener1(TokenStreamRewriter rewriter){
         this.rewriter = rewriter;
         this.block_num = 0;
     }
