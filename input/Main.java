@@ -18,7 +18,7 @@ public class Main {
         }
     }
     public static int trial_rec(int x) throws Exception{
-        if(x==0) return 0;
+        if(x==0) {return 0;}
         System.out.println(x);
         x-=1;
         return trial_rec(x);
