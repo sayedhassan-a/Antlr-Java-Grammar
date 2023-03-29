@@ -5,7 +5,6 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import java.io.FileWriter;
 import java.util.Iterator;
 import java.util.Vector;
-import java.io.IOException;
 
 public class myBaseListener extends JavaParserBaseListener{
     int block_num;
