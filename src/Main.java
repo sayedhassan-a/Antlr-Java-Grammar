@@ -7,11 +7,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception{
-        SortedSet<String> hash_Set = new TreeSet<String>();
-        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter file path");
+        // IF Test
         String file_name = myObj.nextLine();  // Read user input
-
         ANTLRInputStream input = new ANTLRFileStream(file_name);
         JavaLexer lexer=new JavaLexer(input);
         CommonTokenStream tokens= new CommonTokenStream(lexer);
@@ -19,10 +16,9 @@ public class Main {
         ParseTree tree = parser.compilationUnit();
         TokenStreamRewriter rewriter = new TokenStreamRewriter(tokens);
         ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk(new myBaseListener(rewriter), tree);
-
-
-        FileWriter myWriter = new FileWriter("Main.java");
+        walker.walk(new StatmentBlock(rewriter), tree);
+        FileWriter myWriter = new FileWriter("IF.java");
+        file_name="IF.java";
         myWriter.write(rewriter.getText());
         myWriter.close();
 
