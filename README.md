@@ -21,3 +21,7 @@ Build a dynamic code analyzer for Java Language to generate statement and branch
   ![Task 2](https://github.com/sayedhassan-a/Antlr-Java-Grammar/blob/master/input2.jpg)
   ### 5) Output
   ![Task 2](https://github.com/sayedhassan-a/Antlr-Java-Grammar/blob/master/output2.jpg)    
+
+## Task 3 
+    ### First task is to create an HTML file that color the visited blocks with green background abd the non visited blocks with red color
+    ### Second task is to create HTML file same as task one and color the multible expressions that is not visited and the clock is visited with orange
