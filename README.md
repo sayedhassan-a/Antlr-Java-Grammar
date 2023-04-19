@@ -28,9 +28,9 @@ Build a dynamic code analyzer for Java Language to generate statement and branch
 
 ### Test 1 )
    ### Input :
-   ![Task 3]![Alt text](test1\input.jpg)
+   ![Task 3]![Alt text](https://github.com/sayedhassan-a/Antlr-Java-Grammar/blob/master/test1/input.jpg)
    ### Output :
-   ![Task 3]![Alt text](test1\result.jpg)
+   ![Task 3]![Alt text](https://github.com/sayedhassan-a/Antlr-Java-Grammar/blob/master/test1/result.jpg)
  
 ### Test 2 )
    ### Input :
