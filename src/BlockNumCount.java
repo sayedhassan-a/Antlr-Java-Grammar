@@ -2,7 +2,6 @@ import org.antlr.v4.runtime.TokenStreamRewriter;
 
 public class BlockNumCount extends JavaParserBaseListener{
     int block_num;
-    int cur_block;
     boolean add_imports;
     TokenStreamRewriter rewriter;
     public BlockNumCount(TokenStreamRewriter rewriter){
