@@ -25,6 +25,12 @@ Build a dynamic code analyzer for Java Language to generate statement and branch
 ## Task 3 
     - First task is to create an HTML file that color the visited blocks with green background abd the non visited blocks with red color
     - Second task is to create HTML file same as task one and color the multible expressions that is not visited and the clock is visited with orange
+
+### Test 1 )
+   ### Input :
+   ![Task 3]![Alt text](test1\input.jpg)
+   ### Output :
+   ![Task 3]![Alt text](test1\result.jpg)
  
 ### Test 2 )
    ### Input :
