@@ -1,0 +1,12 @@
+Block number 0 is visited
+Block number 1 is visited
+Block number 4 is visited
+Block number 4 is visited
+Block number 4 is visited
+Block number 4 is visited
+Block number 4 is visited
+Block number 4 is visited
+Block number 4 is visited
+Block number 4 is visited
+Block number 4 is visited
+Block number 4 is visited
